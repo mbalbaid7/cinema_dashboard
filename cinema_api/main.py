@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import movies, customers, revenue, filters
+from cinema_api.routers import movies, customers, revenue, filters
+from cinema_api import data_loader
 
 app = FastAPI(title="Cinema API - Modular")
 
