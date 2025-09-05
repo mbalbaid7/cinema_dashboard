@@ -1,0 +1,41 @@
+movie_id,Title,genre,duration_min,popularity
+M001,Lost Stars,Romance,95,0.367
+M002,Final Hour,Sci-Fi,120,0.357
+M003,The Last Ticket,Action,105,0.319
+M004,Midnight Run,Drama,95,0.628
+M005,Desert Song,Sci-Fi,90,0.429
+M006,Ocean's Echo,Romance,120,0.654
+M007,Hidden Truth,Horror,95,0.683
+M008,Parallel Lives,Family,130,0.304
+M009,The Invitation,Drama,130,0.754
+M010,Broken Lines,Comedy,100,0.401
+M011,Red Horizon,Comedy,130,0.366
+M012,Silent Night,Action,105,0.533
+M013,City of Lights,Sci-Fi,100,0.472
+M014,Silver Road,Romance,90,0.599
+M015,Echoes,Horror,90,0.351
+M016,The Pact,Family,100,0.709
+M017,Rising Dawn,Comedy,130,0.675
+M018,Shadow Game,Action,120,0.33
+M019,Secret Keeper,Family,95,0.488
+M020,Blue Flame,Family,90,0.451
+M021,Winter Tale,Horror,90,0.481
+M022,Neon Ghost,Family,120,0.537
+M023,Last Call,Comedy,100,0.436
+M024,Iron Will,Romance,100,0.909
+M025,Paper Towns,Action,120,0.696
+M026,Golden Gate,Sci-Fi,95,0.774
+M027,The Thieves,Horror,95,0.547
+M028,Urban Myth,Romance,120,0.662
+M029,After Rain,Comedy,120,0.848
+M030,Lonely Planet,Action,130,0.449
+M031,New Moon,Family,90,0.505
+M032,Storm Riders,Action,100,0.437
+M033,Blaze,Romance,110,0.505
+M034,Whisper,Horror,120,0.557
+M035,Dark Alley,Horror,120,0.393
+M036,The Candidate,Drama,95,0.784
+M037,Final Witness,Comedy,110,0.786
+M038,Simple Life,Sci-Fi,105,0.56
+M039,True North,Drama,95,0.631
+M040,Open Seas,Family,90,0.331

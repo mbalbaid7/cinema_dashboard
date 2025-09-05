@@ -1,0 +1,9 @@
+streamlit
+pandas
+plotly
+requests
+fpdf
+arabic-reshaper
+python-bidi
+fastapi
+uvicorn
