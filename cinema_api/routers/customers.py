@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from data_loader import get_data
+from cinema_api.data_loader import get_data
+
 
 
 router = APIRouter(prefix="/customers", tags=["Customers"])
