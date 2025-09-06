@@ -12,7 +12,7 @@ API = "https://cinema-dashboard-2.onrender.com"
 params = {}
 # ===== Fetch filtered data =====
 try:
-    r = requests.get(f"{API}/filter/data", params=params)
+    r = requests.get(f"{API}/filter/filter/data", params=params)
     r.raise_for_status()
     dff = pd.DataFrame(r.json())
 
