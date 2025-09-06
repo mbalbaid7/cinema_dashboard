@@ -7,7 +7,7 @@ import plotly.express as px
 st.set_page_config(page_title="لوحة دور السينما", layout="wide")
 st.title("🎬 لوحة مؤشرات دور السينما")
 
-API = "http://127.0.0.1:8000"
+API = "https://cinema-dashboard-2.onrender.com/"
 
 params = {}
 # ===== Fetch filtered data =====
