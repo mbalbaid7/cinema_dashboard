@@ -46,7 +46,7 @@ else:
     st.title("🎬 لوحة مؤشرات دور السينما")
 
     try:
-        r = requests.get(f"{API}/filter/data")
+        r = requests.get(f"{API}/filter/filter/data")
         r.raise_for_status()
         dff = pd.DataFrame(r.json())
         dff["purchase_time"] = pd.to_datetime(dff["purchase_time"])
