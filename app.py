@@ -11,23 +11,38 @@ API = "https://cinema-dashboard-2.onrender.com"  # رابط الـ API بعد ا
 # ===== حالة تسجيل الدخول =====
 if "user" not in st.session_state:
     st.session_state.user = None
+    st.session_state.users = {"admin": "1234"} 
 
 # ===== واجهة تسجيل الدخول =====
 if st.session_state.user is None:
+    tab_login, tab_signup = st.tabs(["🔐 تسجيل الدخول", "🆕 إنشاء حساب"])
     st.title("🔐 تسجيل الدخول")
+    # --- تسجيل الدخول ---
+    with tab_login:
+        username = st.text_input("👤 اسم المستخدم", key="login_user")
+        password = st.text_input("🔑 كلمة المرور", type="password", key="login_pass")
 
-    username = st.text_input("👤 اسم المستخدم", key="login_user")
-    password = st.text_input("🔑 كلمة المرور", type="password", key="login_pass")
+        if st.button("تسجيل الدخول"):
+            # تحقق بسيط (تقدري تربطيه بقاعدة بيانات أو API لاحقاً)
+            if username == "admin" and password == "1234":
+                st.session_state.user = username
+                st.success("✅ تم تسجيل الدخول بنجاح!")
+                st.rerun()
+            else:
+                st.error("❌ اسم المستخدم أو كلمة المرور غير صحيحة")
+    # --- إنشاء حساب ---
+    with tab_signup:
+        new_user = st.text_input("👤 اسم مستخدم جديد", key="signup_user")
+        new_pass = st.text_input("🔑 كلمة مرور", type="password", key="signup_pass")
 
-    if st.button("تسجيل الدخول"):
-        # تحقق بسيط (تقدري تربطيه بقاعدة بيانات أو API لاحقاً)
-        if username == "admin" and password == "1234":
-            st.session_state.user = username
-            st.success("✅ تم تسجيل الدخول بنجاح!")
-            st.rerun()
-        else:
-            st.error("❌ اسم المستخدم أو كلمة المرور غير صحيحة")
-
+        if st.button("إنشاء الحساب"):
+            if new_user in st.session_state.users:
+                st.warning("⚠️ اسم المستخدم موجود بالفعل، جرّب اسم آخر.")
+            elif len(new_user) < 3 or len(new_pass) < 3:
+                st.warning("⚠️ اسم المستخدم وكلمة المرور لازم تكون أطول من 3 حروف.")
+            else:
+                st.session_state.users[new_user] = new_pass
+                st.success("✅ تم إنشاء الحساب بنجاح! تقدر تسجل الدخول الآن.")
 # ===== الداشبورد =====
 else:
     st.sidebar.write(f"👋 مرحباً، {st.session_state.user}")
