@@ -6,6 +6,12 @@ import plotly.express as px
 st.set_page_config(page_title="🎬 نظام السينما", layout="wide")
 
 API = "https://cinema-dashboard-2.onrender.com"  # رابط الـ API
+from users_db import init_db, add_user, get_user
+
+# أول ما يبدأ التطبيق
+init_db()
+# مستخدم افتراضي
+add_user("admin", "123")
 
 # =================== حالة تسجيل الدخول ===================
 if "logged_in" not in st.session_state:
@@ -22,12 +28,13 @@ if not st.session_state["logged_in"]:
         password = st.text_input("كلمة المرور", type="password", key="login_pass")
 
         if st.button("دخول", key="login_btn"):
-            if username == "admin" and password == "123":  # مؤقتاً ثابت
-                st.success("✅ تسجيل الدخول ناجح")
-                st.session_state["logged_in"] = True
-                st.rerun()
-            else:
-                st.error("❌ اسم المستخدم أو كلمة المرور غير صحيحة")
+            user = get_user(username, password)
+        if user:
+            st.session_state.logged_in = True
+            st.success("✅ تم تسجيل الدخول بنجاح")
+            st.rerun()
+        else:
+            st.error("❌ بيانات الدخول غير صحيحة")
 
     with tab2:
         new_user = st.text_input("اسم المستخدم الجديد", key="reg_user")
@@ -38,7 +45,8 @@ if not st.session_state["logged_in"]:
 
 # =================== الداشبورد ===================
 else:
-    st.sidebar.success("✅ تم تسجيل الدخول")
+   
+    st.sidebar.success(f"مرحباً، {username}")
     if st.sidebar.button("🚪 تسجيل الخروج"):
         st.session_state["logged_in"] = False
         st.rerun()
