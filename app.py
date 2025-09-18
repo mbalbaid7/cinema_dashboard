@@ -29,10 +29,11 @@ if not st.session_state["logged_in"]:
         username = st.text_input("اسم المستخدم", key="login_user")
         password = st.text_input("كلمة المرور", type="password", key="login_pass")
 
-        if st.button("دخول", key="login_btn"):
+        if st.button("دخول"):
             user = get_user(username, password)
         if user:
             st.session_state.logged_in = True
+            st.session_state.username = username 
             st.success("✅ تم تسجيل الدخول بنجاح")
             st.rerun()
         else:
@@ -48,7 +49,7 @@ if not st.session_state["logged_in"]:
 # =================== الداشبورد ===================
 else:
    
-    st.sidebar.success(f"مرحباً، {username}")
+    st.sidebar.success(f"مرحباً، {st.session_state.username}")
     if st.sidebar.button("🚪 تسجيل الخروج"):
         st.session_state["logged_in"] = False
         st.rerun()
